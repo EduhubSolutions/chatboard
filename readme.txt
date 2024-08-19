@@ -1,4 +1,4 @@
-=== Eduhub Chat Board ===
+=== Chat Board by eduhub ===
 Contributors: eduhub.solutions
 Tags:  livechat, chat, live chat, chatbot, free-live-chat, free live chat, live-chat, live chat, live support, chat-plugin, bot, chat plugin, chat bot
 Requires at least: 3.0.0
@@ -22,7 +22,7 @@ Using the plugin, you can easily handle the following WordPress live chat
 * Support live chat: answer questions your users might have about your business through live chat.
 * Sales live chat: help answer questions your potential customers might have about your products/services through live chat.
 * Marketing live chat: create emails or phone number lists, synchronize WooCommerce. Details [here](https://chatboardapp.com/marketing).
-* Automated chatbot: create powerful scenario with by connecting the Dialogflow chatbot. Details [here](https://chatboardapp.com/bot).
+* Automated chatbot: create powerful scenario with by connecting the Dialogflow chatbot. Details [here](https://chatboardapp.com/chatbot).
 
 ### Real-time notifications 
 Don't lose visitors. Actively engage them instead with a complete set of notifications.
@@ -128,7 +128,7 @@ It runs like any other software on your computer or and any other app on your mo
 Register a new account at [https://dashboard.chatboardapp.com/](https://dashboard.chatboardapp.com/).
 Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 From the WordPress admin area go to Settings > Chat Board Cloud and insert the embed code of the chat (get it from https://dashboard.chatboardapp.com/account/).
-Use the shortcode [sb-tickets] to display the ticket area. Use the shortcode [sb-articles] to display the articles area.
+Use the shortcode [chatboard-tickets] to display the ticket area. Use the shortcode [chatboard-articles] to display the articles area.
 
 = What is Chat Board? =
 
