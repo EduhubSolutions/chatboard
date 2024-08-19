@@ -1,5 +1,5 @@
 # Chat Board WordPress Plugin
-utomate your customers' communication with artificial intelligence-driven bots and a chat system optimized for conversational marketing. 
+Automate your customers' communication with artificial intelligence-driven bots and a chat system optimized for conversational marketing. 
 Save time, increase revenues, and use the software you already know and love.
 Here's how our Live Chat plugin will help you capture more leads and enhance your conversions rates.
 
