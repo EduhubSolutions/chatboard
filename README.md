@@ -1,1 +1,1 @@
-# chatboard-wordpress-plugin
+# Chat Board WordPress Plugin
