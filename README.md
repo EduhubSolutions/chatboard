@@ -109,37 +109,37 @@ It runs like any other software on your computer or and any other app on your mo
 * More Features
 
 
-== FAQ ==
+## FAQ
 
-= Installation =
+# Installation
 
 Register a new account at [https://dashboard.chatboardapp.com/](https://dashboard.chatboardapp.com/).
 Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 From the WordPress admin area go to Settings > Chat Board Cloud and insert the embed code of the chat (get it from https://dashboard.chatboardapp.com/account/).
 Use the shortcode [chatboard-tickets] to display the ticket area. Use the shortcode [chatboard-articles] to display the articles area.
 
-= What is Chat Board? =
+# What is Chat Board?
 
 Chat Board provides a customer messaging platform for small and medium companies to help them scale their customer relationships. Live Chat and the chatbot are two of the main features but not the only ones. Give them a try!
 
-= Who should use Chat Board Live Chat? =
+# Who should use Chat Board Live Chat?
 
 Chat Board is perfect for agencies, business owners, small businesses, bloggers, designers, anyone with a WordPress website and wants to use live chat on their website.
 
-= Do I need coding skills to use Chat Board Wordpress plugin? =
+# Do I need coding skills to use Chat Board Wordpress plugin?
 
 Not at all. You can create and manage your conversations without any coding using our user-friendly software.
 
-= How can I upgrade to paid features? =
+# How can I upgrade to paid features?
 
 The Chat Board's paid tiers are built for those who send a large volume of messages. For more details, [view our pricing page](https://chatboardapp.com/pricing/).
 
-== Screenshots ==
+## Screenshots
 
 1. Dashboard
 2. Users area
 3. Chat
 
-== Changelog ==
+# Changelog
 
-https://chatboardapp.com/changes
+[Changelog](https://chatboardapp.com/changelog/)
