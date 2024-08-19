@@ -115,7 +115,7 @@ It runs like any other software on your computer or and any other app on your mo
 
 Register a new account at [https://dashboard.chatboardapp.com/](https://dashboard.chatboardapp.com/).
 Upload the plugin folder to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
-From the WordPress admin area go to Settings > Chat Board Cloud and insert the embed code of the chat (get it from https://dashboard.chatboardapp.com/account/).
+From the WordPress admin area go to Settings > Chat Board and insert the embed code of the chat (get it from https://dashboard.chatboardapp.com/account/).
 Use the shortcode [chatboard-tickets] to display the ticket area. Use the shortcode [chatboard-articles] to display the articles area.
 
 ### What is Chat Board?
