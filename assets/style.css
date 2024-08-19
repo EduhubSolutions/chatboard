@@ -1,0 +1,13 @@
+.chatboard-table {
+    max-width: 800px;
+}
+
+.chatboard-table input[type=text], .chatboard-table textarea, .chatboard-table select {
+    width: 100%;
+}
+
+.chatboard-table td label {
+    display: block;
+    margin: 5px 0;
+    font-weight: 600;
+}
