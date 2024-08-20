@@ -2,13 +2,15 @@
 
 /*
  *
- * Plugin Name: Chat Board by eduhub
- * Plugin URI: https://chatboardapp.com/
+ * Plugin Name: Chat Board
+ * Plugin URI: https://github.com/EduhubSolutions/chatboard-wordpress-plugin/
  * Description: Smart chat for better support and marketing
  * Version: 1.0.0
  * Author: Eduhub Solutions
  * Author URI: https://eduhub.solutions/
- * © 2024 eduhub.solutions. All rights reserved.
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.html
+ * © 2024 chatboardapp.com. All rights reserved.
  *
  */
 
@@ -17,6 +19,7 @@ function chatboard_set_admin_menu() {
 }
 
 function chatboard_enqueue_admin() {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification not needed for this read-only operation.
     if (key_exists('page', $_GET) && $_GET['page'] == 'chat-board') {
         wp_enqueue_style('chatboard-admin-css', plugin_dir_url(__FILE__) . '/assets/style.css', [], time(), 'all');
     }
@@ -81,6 +84,7 @@ function chatboard_articles_shortcode() {
     // Determine the parameters based on the URL
     $category = get_query_var('category');
     $article_id = get_query_var('article_id');
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verification not needed for search operation.
     $search = isset($_GET['search']) ? $_GET['search'] : '';
 
     ob_start(); // Start output buffering
@@ -98,27 +102,28 @@ function chatboard_articles_shortcode() {
             $api_url .= '?search=' . urlencode($search);
         }
 
-        // Initialize cURL
-        $ch = curl_init($api_url);
-        $parameters = [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_USERAGENT => 'Chat Board',
-            CURLOPT_POST => true,
-            CURLOPT_CONNECTTIMEOUT => 5,
-            CURLOPT_POSTFIELDS => http_build_query([
+        // Prepare the arguments for the POST request
+        $args = [
+            'body' => [
                 'token' => $api_token,
-                'function' => 'init-articles'
-            ])
+                'function' => 'init-articles',
+            ],
+            'timeout' => 5,
+            'sslverify' => false,
+            'user-agent' => 'Chat Board',
         ];
-        curl_setopt_array($ch, $parameters);
 
-        // Execute the cURL request and close it
-        $response = curl_exec($ch);
-        curl_close($ch);
+        // Execute the POST request
+        $response = wp_remote_post($api_url, $args);
 
-        // Output the response
-        echo $response;
+        // Check for errors
+        if (is_wp_error($response)) {
+            $error_message = $response->get_error_message();
+            echo "Something went wrong: " . esc_html($error_message);
+        } else {
+            // Output the response body
+            echo wp_remote_retrieve_body($response);
+        }
         ?>
     </div>
     <?php
@@ -132,12 +137,11 @@ function chatboard_isset($array, $key, $default = '') {
 
 function chatboard_admin() { 
     if (isset($_POST['chatboard_submit'])) {
+	if (!isset($_POST['chatboard_nonce_field']) || !wp_verify_nonce($_POST['chatboard_nonce_field'], 'chatboard_settings_nonce_action')) {
+            die('Nonce verification failed');
+	}
         $chat_id = $_POST['chatboard-chat-id'];
         $api_token = $_POST['chatboard-api-token']; // Add this line to capture the token
-
-        if (!isset($_POST['sb_nonce']) || !wp_verify_nonce($_POST['sb_nonce'], 'sb-nonce')) die('nonce-check-failed'); 
-        
-        // Sanitize and store the token along with other settings
         $settings = [
             'chat-id' => sanitize_text_field($chat_id),
             'api-token' => sanitize_text_field($api_token), // Save the token
@@ -148,7 +152,7 @@ function chatboard_admin() {
             'synch-wp-users' => sanitize_text_field(chatboard_isset($_POST, 'chatboard-synch-wp-users', false)),
             'force-language' => sanitize_text_field($_POST['chatboard-force-language'])
         ];
-        update_option('chatboard-settings', json_encode($settings));
+        update_option('chatboard-settings', wp_json_encode($settings));
     }
     
     $settings = json_decode(get_option('chatboard-settings'), true);
@@ -300,7 +304,7 @@ function chatboard_admin() {
             </tbody>
         </table>
         <p class="submit">
-            <input type="hidden" name="sb_nonce" id="sb_nonce" value="<?php echo wp_create_nonce('sb-nonce') ?>">
+            <input type="hidden" name="sb_nonce" id="sb_nonce" value="<?php echo esc_attr(wp_create_nonce('sb-nonce')); ?>">
             <input type="submit" class="button-primary" name="chatboard_submit" value="Save changes" />
         </p>
     </div>
