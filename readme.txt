@@ -1,12 +1,12 @@
-=== Chat Board by eduhub ===
+=== Chat Board ===
 Contributors: eduhub.solutions
 Tags:  livechat, chat, live chat, chatbot, free-live-chat, free live chat, live-chat, live chat, live support, chat-plugin, bot, chat plugin, chat bot
 Requires at least: 3.0.0
 Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.0.0
-License: MIT
-License URI: https://opensource.org/licenses/MIT
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
 A Free one-click-to-install Live Chat plugin. No coding skills required.
 
 == Description ==
