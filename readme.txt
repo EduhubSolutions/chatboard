@@ -2,7 +2,7 @@
 Contributors: eduhub.solutions
 Tags:  livechat, chat, live chat, chatbot, free-live-chat, free live chat, live-chat, live chat, live support, chat-plugin, bot, chat plugin, chat bot
 Requires at least: 3.0.0
-Tested up to: 6.3.1
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: MIT
